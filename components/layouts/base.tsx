@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import utilStyles from '../../styles/utils.module.css'
 import Link from 'next/link'
 import AodLogo from '../AodLogo';
 
@@ -11,16 +10,7 @@ export default function Layout(props) {
     <div className="root">
 
         <style jsx>{`
-        main {
-            padding: 0 1.25rem;
-            margin: 3rem auto 6rem;
-            padding-bottom:1em;
-        }
-        .home {
-            max-width: 36rem;
-            padding: 0 1rem;
-            margin: 3rem auto 6rem;
-        }
+
         .headerHome {
             margin-top:3em;
             display: flex;
@@ -31,32 +21,26 @@ export default function Layout(props) {
             cursor: default;
         }
         .header {
-            top:0;
-            left:0;
-            width:100%;
-            height:160px;
+            margin-top:1em;
         }
         .header .logoContainer {
             transform: scale(0.4, 0.4);
             position:absolute;
-            top:-4.5em;
-            left:-4em;
+            top:-5em;
+            left:-5em;
         }
         .header h1 {
-            position:absolute;
-            top:0;
-            left:6.5em;
+            margin:0;
             font-size:1.4em;
         }
         .header .menu {
-            position: absolute;
-            right:1em;
-            top:1em;
-            text-align:right;
+            padding-top:0.75em;
+            padding-left:8.5em;
         }
-        .header .menu ul {
+        .header ul {
             margin:0;
             padding:0;
+            margin-top:0.5em;
             line-height:1.3em;
         }
         .header .menu li {
@@ -64,7 +48,16 @@ export default function Layout(props) {
             margin:0;
             padding:0;
         }
+        main {
+            margin: 2rem auto;
+            min-width:240px;
+        }
+            main.home {
+                max-width: 36rem;
+                padding: 0 1rem;
+            }
         `}
+
         </style>
 
         <Head>
@@ -75,9 +68,11 @@ export default function Layout(props) {
             <meta name="og:title" content={siteTitle} />
             <meta name="twitter:card" content="summary_large_image" />
         </Head>
+
+
         {props.home ? (
             <header className="headerHome">
-                <div className="logoContainer">
+                <div>
                     <AodLogo />
                 </div>
                 <h1>Archive of Discoveries</h1>
@@ -89,14 +84,14 @@ export default function Layout(props) {
                         <a><AodLogo /></a>
                     </Link>
                 </div>
-                <h1>
-                    <Link href="/">
-                        <a className="ghosted">
-                            Archive of Discoveries
-                        </a>
-                    </Link>
-                </h1>
                 <div className="menu">
+                    <h1>
+                        <Link href="/">
+                            <a className="ghosted">
+                                Archive of Discoveries
+                            </a>
+                        </Link>
+                    </h1>
                     <ul>
                         <li><a href="" className="ghosted">Link</a></li>
                         <li><a href="" className="ghosted">Main</a></li>

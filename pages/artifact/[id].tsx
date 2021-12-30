@@ -35,9 +35,7 @@ export default function Artifact() {
                 opacity:0.65;
             }
             .artifactImage {
-                width:700px;
-                height:700px;
-                margin: 2em 0;
+                margin: 1em 0;
                 max-width:600px;
                 max-height:600px;
                 background:rgb(232,225,200);
@@ -61,14 +59,17 @@ export default function Artifact() {
             {data.name}
         </h1>
 
-        <div className="artifactImage"></div>
+        <div className="artifactImage">
+            <img src={data.image}></img>
+        </div>
 
         <section className="metadata">
             {data.name}<br />
             artifactId: {query.id}<br />
             date: {data.date}<br />
-            description:<br /><br />
-            <em>{data.description}</em>
+            <p>
+                <em>{data.description}</em>
+            </p>
         </section>
 
     </Base>

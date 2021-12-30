@@ -15,7 +15,8 @@ const Artifact = async (req: NextApiRequest, res: NextApiResponse) => {
     const metadata = {
         name : "Artifact 1029",
         description: "Description of this artifact",
-        date: new Date().toString()
+        date: new Date().toString(),
+        image: "https://picsum.photos/id/1024/600/600"
     }
 
     res.json(metadata);

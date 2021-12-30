@@ -3,8 +3,8 @@ const AodLogo = (props: any) => (
     <style jsx>{`
         .aod-logo {
             margin:0 auto 1em auto;
-            max-width:300px;
-            max-height:300px;
+            width:300px;
+            height:300px;
         }
         .aod-logo-svg-clip div {
             -webkit-clip-path: url(#aod-logo);
@@ -22,9 +22,13 @@ const AodLogo = (props: any) => (
             );
             background-size: 1600% 1600%;
         }
+        .aod-logo-svg-clip {
+            width:100%;
+            height:100%;
+        }
         .aod-logo-anim {
-            height:400px;
-            width:400px;
+            width:100%;
+            height:100%;
             animation: logoGrad 33s ease infinite;
             transition: 0.5s all;
         }
