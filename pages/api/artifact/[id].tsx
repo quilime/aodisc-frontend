@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { phraseResolver } from "../../../util/api";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const Artifact = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const { id } = req.query as { id: string };
     const artifactId = parseInt(id);
@@ -26,3 +26,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
   }
 };
+
+export default Artifact;

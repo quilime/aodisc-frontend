@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { phraseResolver } from "../../../util/api";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const Collection = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const { id } = req.query as { id: string };
 
@@ -13,3 +13,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
   }
 };
+export default Collection;
