@@ -1,5 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { phraseResolver } from "../../../util/api";
+import fs from 'fs';
+import path from 'path';
+
+const METADATA_DIR = path.join(process.cwd(), "public", "metadata");
 
 const Artifact = async (req: NextApiRequest, res: NextApiResponse) => {
 
@@ -12,20 +16,21 @@ const Artifact = async (req: NextApiRequest, res: NextApiResponse) => {
         throw(new Error("ID for nonexistant artifact"));
     }
 
-    const metadata = {
-        name : "Artifact 1029",
-        description: "Description of this artifact",
-        date: new Date().toString(),
-        image: "https://picsum.photos/id/1024/600/600"
-    }
+    const filename:string = `${METADATA_DIR}/${artifactId}.json`;
+    fs.accessSync(filename, fs.constants.F_OK);
+    const rawdata = fs.readFileSync(filename);
+    const metadata = JSON.parse(rawdata.toString());
+
+    // add date as palceholder
+    metadata.date = new Date().toString(),
 
     res.json(metadata);
 
-  } catch (e) {
-    res.status(400).json({
-        error: (e as Error).message
-    });
-  }
+    } catch (e) {
+        const error = (e as Error).message;
+        console.error(error);
+        res.status(400).json({ error: error });
+    }
 };
 
 export default Artifact;

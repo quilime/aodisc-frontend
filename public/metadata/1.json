@@ -1,5 +1,5 @@
 {
-    "name": "Artifact 1",
-    "description": "Description for artifact 1",
-    "image": "https://picsum.photos/id/1024/200/200"
+    "name": "Space Guy",
+    "description": "It's a guy and he's in space.",
+    "image": "/artifacts/1.png"
 }

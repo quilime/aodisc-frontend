@@ -17,12 +17,7 @@ const fetcher = async (url) => {
 export default function Artifact() {
 
     const { query } = useRouter();
-    const { data, error } = useSWR(
-      () => query.id && `/api/artifact/${query.id}`,
-      fetcher
-    )
-
-    console.log(data);
+    const { data, error } = useSWR(() => query.id && `/api/artifact/${query.id}`, fetcher);
 
     if (error) return <div>{error.message}</div>
     if (!data) return <div>Loading...</div>

@@ -22,14 +22,6 @@ export default function Home() {
 
         <Link href="/artifacts/">All Artifacts</Link>
 
-        <br />
-
-        <Link href="/artifact/1">Artifact 1</Link>
-
-        <br />
-
-        <Link href="/artifact/2">Artifact 2</Link>
-
     </Base>
   )
 }

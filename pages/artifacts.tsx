@@ -36,11 +36,20 @@ export default function Artifacts() {
 
         <h1>Artifacts</h1>
 
-        <h2>
-          <Link href="/">
-            <a>Back to home</a>
-          </Link>
-        </h2>
+        <p>
+
+        <Link href="/artifact/1">Artifact 1</Link>
+
+        <br />
+
+        <Link href="/artifact/2">Artifact 2</Link>
+
+        <br />
+
+        <Link href="/artifact/3">Artifact 3</Link>
+
+        </p>
+
     </Base>
     )
   }
