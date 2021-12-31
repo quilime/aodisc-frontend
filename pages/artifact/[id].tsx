@@ -48,7 +48,7 @@ export default function Artifact() {
         </h1>
 
         <div className="artifactImage">
-            <Image alt={data.name} src={data.image}></Image>
+            <img src={data.image}></img>
         </div>
 
         <section className="metadata">
