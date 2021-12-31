@@ -93,9 +93,9 @@ export default function Layout(props) {
                         </Link>
                     </h1>
                     <ul>
-                        <li><a href="/collection" className="ghosted">Collections</a></li>
-                        <li><a href="/artifact" className="ghosted">Artifacts</a></li>
-                        <li><a href="/about" className="ghosted">About</a></li>
+                        <li><Link href="/collection"><a className="ghosted">Collections</a></Link></li>
+                        <li><Link href="/artifact"><a className="ghosted">Artifacts</a></Link></li>
+                        <li><Link href="/about"><a className="ghosted">About</a></Link></li>
                     </ul>
                 </div>
             </header>

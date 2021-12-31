@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react';
 import Base from '../../components/layouts/base'
 import Breadcrumbs from '../../components/breadcrumbs';
@@ -47,7 +48,7 @@ export default function Artifact() {
         </h1>
 
         <div className="artifactImage">
-            <img src={data.image}></img>
+            <Image alt={data.name} src={data.image}></Image>
         </div>
 
         <section className="metadata">
