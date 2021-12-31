@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useState } from 'react';
 import Base from '../../components/layouts/base'
+import Breadcrumbs from '../../components/breadcrumbs';
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 
@@ -26,9 +27,6 @@ export default function Artifact() {
     <Base>
 
         <style jsx>{`
-            .breadcrumbs {
-                opacity:0.65;
-            }
             .artifactImage {
                 margin: 1em 0;
                 max-width:600px;
@@ -45,13 +43,7 @@ export default function Artifact() {
         </Head>
 
         <h1>
-            <span className="breadcrumbs">
-                <Link href="/"><a className="ghosted">home</a></Link>
-                {' '}/{' '}
-                <Link href="/artifact"><a className="ghosted">Artifacts</a></Link>
-                {' '}/{' '}
-            </span>
-            {data.name}
+            <Breadcrumbs type="artifact" item={data.name} />
         </h1>
 
         <div className="artifactImage">

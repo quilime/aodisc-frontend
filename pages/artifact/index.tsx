@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useState } from 'react';
 import Base from '../../components/layouts/base'
+import Breadcrumbs from '../../components/breadcrumbs'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import { listenerCount } from 'process';
@@ -39,10 +40,10 @@ export default function Artifacts() {
           <title>Artifacts</title>
         </Head>
 
-        <h1>Artifacts</h1>
+        <h1><Breadcrumbs type="artifact" item="" /></h1>
 
         <ul>
-        {artifactLinks(data)}
+            {artifactLinks(data)}
         </ul>
 
     </Base>
