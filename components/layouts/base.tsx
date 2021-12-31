@@ -49,7 +49,7 @@ export default function Layout(props) {
             padding:0;
         }
         main {
-            margin: 2rem auto;
+            margin: 3.5rem auto;
             min-width:240px;
         }
             main.home {
@@ -93,10 +93,9 @@ export default function Layout(props) {
                         </Link>
                     </h1>
                     <ul>
-                        <li><a href="" className="ghosted">Link</a></li>
-                        <li><a href="" className="ghosted">Main</a></li>
-                        <li><a href="" className="ghosted">Collections</a></li>
-                        <li><a href="" className="ghosted">About</a></li>
+                        <li><a href="/collection" className="ghosted">Collections</a></li>
+                        <li><a href="/artifact" className="ghosted">Artifacts</a></li>
+                        <li><a href="/about" className="ghosted">About</a></li>
                     </ul>
                 </div>
             </header>

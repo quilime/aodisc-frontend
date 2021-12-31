@@ -24,7 +24,7 @@ const Artifact = async (req: NextApiRequest, res: NextApiResponse) => {
     // add date as palceholder
     metadata.date = new Date().toString(),
 
-    res.json(metadata);
+    res.status(200).json(metadata);
 
     } catch (e) {
         const error = (e as Error).message;

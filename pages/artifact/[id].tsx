@@ -48,7 +48,7 @@ export default function Artifact() {
             <span className="breadcrumbs">
                 <Link href="/"><a className="ghosted">home</a></Link>
                 {' '}/{' '}
-                <Link href="/artifacts"><a className="ghosted">Artifacts</a></Link>
+                <Link href="/artifact"><a className="ghosted">Artifacts</a></Link>
                 {' '}/{' '}
             </span>
             {data.name}

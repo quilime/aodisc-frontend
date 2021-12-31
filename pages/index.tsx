@@ -6,7 +6,9 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <Base home>
+    <Base>
+
+        <h1>AoD</h1>
 
         <p>
         <em>Archive of Discoveries</em> (AoD) is an instituancy that collects, archives,
@@ -19,8 +21,6 @@ export default function Home() {
         and transmit extraordinary items from its collection in order to contribute a
         greater awareness of our cultural evolution as we expand deeper into the vast universe.
         </p>
-
-        <Link href="/artifacts/">All Artifacts</Link>
 
     </Base>
   )
