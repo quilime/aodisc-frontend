@@ -1,5 +1,5 @@
 {
     "name": "Artifact 2",
     "description": "Description for artifact 2",
-    "image": "https://picsum.photos/id/1024/600/600"
+    "image": "/artifacts/2.png"
 }

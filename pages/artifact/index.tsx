@@ -28,7 +28,14 @@ export default function Artifacts() {
         let list = [];
         for (var i = 0; i < data.length; i++) {
             const token = data[i];
-            list.push(<li key={i} ><Link href={`/artifact/${token.tokenId}`}>{token.name}</Link></li>);
+            list.push(
+                <li key={i} className="artifact_thumb">
+                    <a href={`/artifact/${token.tokenId}`}>
+                        <img src={token.image} />
+                        {token.name}
+                    </a>
+                </li>
+            );
         }
         return list;
     }
@@ -40,9 +47,28 @@ export default function Artifacts() {
           <title>Artifacts</title>
         </Head>
 
+        <style global>{`
+            .thumbs {
+                display: flex;
+                flex-wrap: wrap;
+                padding:0;
+                margin:0;
+            }
+            .artifact_thumb {
+                flex: 1 0 25%;
+                flex-grow: 0;
+                list-style-type:none;
+                margin:1em;
+                padding:0;
+            }
+            .thumbs .artifact_thumb img {
+                width:400px;
+            }
+        `}</style>
+
         <h1><Breadcrumbs type="artifact" item="" /></h1>
 
-        <ul>
+        <ul className="thumbs">
             {artifactLinks(data)}
         </ul>
 

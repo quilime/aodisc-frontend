@@ -32,7 +32,12 @@ export default function Artifact() {
                 margin: 1em 0;
                 max-width:600px;
                 max-height:600px;
-                background:rgb(232,225,200);
+
+            }
+            .artifactImage img {
+                max-height:600px;
+                max-width:600px;
+
             }
             .metadata {
                 line-height:1.2em;
