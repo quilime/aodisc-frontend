@@ -25,21 +25,23 @@ export default function Artifact() {
     if (error) return <div>{error.message}</div>
     if (!data) return <div>Loading...</div>
 
+    console.log(data.imageInfo.width, data.imageInfo.height);
+    const tall = data.imageInfo.height > data.imageInfo.width;
+    const imageWidth = data.imageInfo.width;
+    const imageHeight = data.imageInfo.height;
+
+    const imageStyle = tall ? { maxWidth: Math.min(imageWidth/1.4, 600) + "px" } : { };
+
     return (
     <Base>
 
         <style jsx>{`
             .artifactImage {
                 margin: 1em 0;
-                max-width:600px;
-                max-height:600px;
-
+                background:#030;
             }
             .artifactImage img {
-                max-height:700px;
-                max-width:700px;
-                text-align:left;
-
+                max-height:100px;
             }
             .metadata {
                 line-height:1.2em;
@@ -54,15 +56,15 @@ export default function Artifact() {
             <Breadcrumbs type="artifact" item={data.name} />
         </h1>
 
-        <div className="artifactImage">
+        <div className="artifactImage" style={imageStyle}>
             <Image
                 src={data.image}
                 alt={data.description}
-                width={660}
-                height={660}
+                width={imageWidth}
+                height={imageHeight}
                 layout="responsive"
                 objectPosition="left"
-                objectFit="scale-down"
+                objectFit="fill"
             />
         </div>
 

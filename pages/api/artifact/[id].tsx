@@ -2,8 +2,11 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { phraseResolver } from "../../../util/api";
 import fs from 'fs';
 import path from 'path';
+import sizeOf from "image-size";
 
-const METADATA_DIR = path.join(process.cwd(), "public", "metadata");
+
+const PUBLIC_DIR = path.join(process.cwd(), "public");
+const METADATA_DIR = path.join(PUBLIC_DIR, "metadata");
 
 const Artifact = async (req: NextApiRequest, res: NextApiResponse) => {
 
@@ -23,6 +26,9 @@ const Artifact = async (req: NextApiRequest, res: NextApiResponse) => {
 
     // add date as palceholder
     metadata.date = new Date().toString(),
+
+    // add image size info
+    metadata.imageInfo = await sizeOf(path.join(PUBLIC_DIR, metadata.image));
 
     res.status(200).json(metadata);
 
