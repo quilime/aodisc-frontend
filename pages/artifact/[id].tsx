@@ -6,6 +6,7 @@ import Base from '../../components/layouts/base'
 import Breadcrumbs from '../../components/breadcrumbs';
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
+import { imageConfigDefault } from 'next/dist/server/image-config';
 
 const fetcher = async (url) => {
     const res = await fetch(url)
@@ -35,8 +36,9 @@ export default function Artifact() {
 
             }
             .artifactImage img {
-                max-height:600px;
-                max-width:600px;
+                max-height:700px;
+                max-width:700px;
+                text-align:left;
 
             }
             .metadata {
@@ -53,7 +55,15 @@ export default function Artifact() {
         </h1>
 
         <div className="artifactImage">
-            <img src={data.image}></img>
+            <Image
+                src={data.image}
+                alt={data.description}
+                width={660}
+                height={660}
+                layout="responsive"
+                objectPosition="left"
+                objectFit="scale-down"
+            />
         </div>
 
         <section className="metadata">

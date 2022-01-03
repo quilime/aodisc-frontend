@@ -31,7 +31,6 @@ export default function Layout(props) {
         }
         .header h1 {
             margin:0;
-            font-size:1.4em;
         }
         .header .menu {
             padding-top:0.75em;

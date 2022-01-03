@@ -22,7 +22,7 @@ const Artifacts = async (req: NextApiRequest, res: NextApiResponse) => {
                 fs.accessSync(file, fs.constants.F_OK);
                 const rawdata = fs.readFileSync(file);
                 const metadata = JSON.parse(rawdata.toString());
-                metadata.tokenId = files[i].split('.')[0];
+                metadata.id = files[i].split('.')[0];
                 metadataArr.push(metadata);
             }
         }

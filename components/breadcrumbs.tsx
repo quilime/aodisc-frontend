@@ -9,11 +9,13 @@ const Breadcrumbs = ({ type, item }) => {
         <style jsx>{`
             .breadcrumbs {
                 opacity:0.65;
+                margin-bottom:0.5em;
             }
+
         `}</style>
-        <span className="breadcrumbs">
-            <Link href="/"><a className="ghosted">home</a></Link>
-            {' '}/{' '}
+        <div className="breadcrumbs">
+            {/* <Link href="/"><a className="ghosted">home</a></Link> */}
+            {/* {' '}/{' '} */}
             {item && (
                 <Link href={t[0]}><a className="ghosted">{t[1]}</a></Link>
             ) || (
@@ -27,7 +29,7 @@ const Breadcrumbs = ({ type, item }) => {
                 {item}
                 </span>
             )}
-        </span>
+        </div>
         </>
     );
 };

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState } from 'react';
+import Image from 'next/image'
+import { useState, forwardRef } from 'react';
 import Base from '../../components/layouts/base'
 import Breadcrumbs from '../../components/breadcrumbs'
 import { useRouter } from 'next/router'
@@ -24,22 +25,6 @@ export default function Artifacts() {
     if (error) return <div>{error.message}</div>
     if (!data) return <div>Loading...</div>
 
-    const artifactLinks = (data:any) => {
-        let list = [];
-        for (var i = 0; i < data.length; i++) {
-            const token = data[i];
-            list.push(
-                <li key={i} className="artifact_thumb">
-                    <a href={`/artifact/${token.tokenId}`}>
-                        <img src={token.image} />
-                        {token.name}
-                    </a>
-                </li>
-            );
-        }
-        return list;
-    }
-
     return (
     <Base>
 
@@ -47,31 +32,58 @@ export default function Artifacts() {
           <title>Artifacts</title>
         </Head>
 
-        <style global>{`
+        <style jsx>{`
             .thumbs {
                 display: flex;
                 flex-wrap: wrap;
                 padding:0;
                 margin:0;
             }
-            .artifact_thumb {
-                flex: 1 0 25%;
-                flex-grow: 0;
+            .thumbs li {
                 list-style-type:none;
-                margin:1em;
-                padding:0;
+                width:200px;
+                height:240px;
+                margin:0 1em 2em 0;
             }
-            .thumbs .artifact_thumb img {
-                width:400px;
-            }
+                .thumbs li:hover {
+                }
+                .thumbs li .thumb {
+                    width:200px;
+                    height:200px;
+                    background:#ddd;
+                    cursor:pointer;
+                }
+                .thumbs li a:link {
+                    text-decoration: none;
+                }
         `}</style>
 
         <h1><Breadcrumbs type="artifact" item="" /></h1>
 
         <ul className="thumbs">
-            {artifactLinks(data)}
+            {data.map((artifact, k) => {
+                return (
+                    <li key={k}>
+                        <div className="thumb">
+                            <Link href={`/artifact/${artifact.id}`} passHref>
+                                <Image
+                                    alt={artifact.description}
+                                    objectFit="cover"
+                                    src={artifact.image}
+                                    layout="responsive"
+                                    width={100}
+                                    height={100}
+                                />
+                            </Link>
+                        </div>
+                        <Link href={`/artifact/${artifact.id}`} passHref>
+                            <a>{artifact.name}</a>
+                        </Link>
+                    </li>
+                );
+            })}
+            {/* {artifactLinks(data)} */}
         </ul>
-
     </Base>
     )
-  }
+}
