@@ -19,7 +19,7 @@ export default function Collections() {
         <h1><Breadcrumbs type="collection" item="" /></h1>
 
         <p>
-            tbd
+            wip
         </p>
 
     </Base>

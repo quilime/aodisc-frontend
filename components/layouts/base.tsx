@@ -68,37 +68,27 @@ export default function Layout(props) {
             <meta name="twitter:card" content="summary_large_image" />
         </Head>
 
-
-        {props.home ? (
-            <header className="headerHome">
-                <div>
-                    <AodLogo />
-                </div>
-                <h1>Archive of Discoveries</h1>
-            </header>
-        ) : (
-            <header className="header">
-                <div className="logoContainer">
+        <header className="header">
+            <div className="logoContainer">
+                <Link href="/">
+                    <a><AodLogo /></a>
+                </Link>
+            </div>
+            <div className="menu">
+                <h1>
                     <Link href="/">
-                        <a><AodLogo /></a>
+                        <a className="ghosted">
+                            Archive of Discoveries
+                        </a>
                     </Link>
-                </div>
-                <div className="menu">
-                    <h1>
-                        <Link href="/">
-                            <a className="ghosted">
-                                Archive of Discoveries
-                            </a>
-                        </Link>
-                    </h1>
-                    <ul>
-                        <li><Link href="/collection"><a className="ghosted">Collections</a></Link></li>
-                        <li><Link href="/artifact"><a className="ghosted">Artifacts</a></Link></li>
-                        <li><Link href="/about"><a className="ghosted">About</a></Link></li>
-                    </ul>
-                </div>
-            </header>
-        )}
+                </h1>
+                <ul>
+                    <li><Link href="/collection"><a className="ghosted">Collections</a></Link></li>
+                    <li><Link href="/artifact"><a className="ghosted">Artifacts</a></Link></li>
+                    <li><Link href="/about"><a className="ghosted">About</a></Link></li>
+                </ul>
+            </div>
+        </header>
 
         <main className={props.home && "home"}>
             {props.children}
